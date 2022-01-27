@@ -1,0 +1,47 @@
+{
+  "name": "next-pokeapi-gql",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "prepare": "husky install",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "postbuild": "next-sitemap"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "axios": "^0.21.4",
+    "lodash": "^4.17.21",
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
+    "styled-breakpoints": "^11.0.4",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.7.2",
+    "@types/lodash": "^4.14.172",
+    "@types/react": "^17.0.19",
+    "@types/styled-system": "^5.1.15",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-next": "^11.1.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "next-sitemap": "^1.6.164",
+    "prettier": "^2.3.0",
+    "typescript": "^4.3.5"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,md,mdx}": [
+      "yarn eslint src --max-warnings=0",
+      "yarn format"
+    ]
+  }
+}
