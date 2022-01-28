@@ -1,11 +1,12 @@
 import { AppProps } from "next/app";
-import { TransitionLayout } from "@/components/layouts";
+import { Global } from "@emotion/react";
 
-import { globalStyles } from "@/shared/styles";
+import { TransitionLayout } from "@/components/layouts";
+import { globalStyles } from "@/shared/global";
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => (
   <>
-    {globalStyles}
+    <Global styles={globalStyles} />
     <TransitionLayout route={router.route}>
       <Component {...pageProps} />
     </TransitionLayout>
