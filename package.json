@@ -12,10 +12,11 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@apollo/client": "^3.5.8",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "axios": "^0.21.4",
-    "lodash": "^4.17.21",
+    "graphql": "^16.3.0",
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -25,7 +26,6 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.7.2",
-    "@types/lodash": "^4.14.172",
     "@types/react": "^17.0.19",
     "@types/styled-system": "^5.1.15",
     "@typescript-eslint/eslint-plugin": "^4.29.3",

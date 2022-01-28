@@ -1,15 +1,19 @@
 import { AppProps } from "next/app";
 import { Global } from "@emotion/react";
+import { ApolloProvider } from "@apollo/client";
 
 import { TransitionLayout } from "@/components/layouts";
 import { globalStyles } from "@/shared/global";
+import { apolloClient } from "@/lib";
 
 const MyApp = ({ Component, pageProps, router }: AppProps) => (
   <>
     <Global styles={globalStyles} />
-    <TransitionLayout route={router.route}>
-      <Component {...pageProps} />
-    </TransitionLayout>
+    <ApolloProvider client={apolloClient}>
+      <TransitionLayout route={router.route}>
+        <Component {...pageProps} />
+      </TransitionLayout>
+    </ApolloProvider>
   </>
 );
 
