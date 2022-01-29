@@ -1,7 +1,7 @@
 import * as React from "react";
 import { RiFileWarningFill } from "react-icons/ri";
 import Router from "next/router";
-import { SEO } from "@/components";
+import { Button, SEO } from "@/components";
 import styled from "@emotion/styled";
 import { layout, LayoutProps } from "styled-system";
 import { Typography } from "@/shared/typography";
@@ -27,7 +27,7 @@ const NotFoundPage: React.FC = () => {
         <CenteredDiv minHeight="100vh">
           <RiFileWarningFill size={72} style={{ color: "rgb(239 68 68)" }} />
           <Typography.H1 fontWeight="bold">Page Not Found</Typography.H1>
-          <button onClick={handleBack}>Go Back</button>
+          <Button onClick={handleBack}>Go Back</Button>
         </CenteredDiv>
       </main>
     </>

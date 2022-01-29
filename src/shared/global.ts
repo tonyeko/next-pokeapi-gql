@@ -17,6 +17,5 @@ export const globalStyles = css`
     background: rgba(229, 231, 235, 1);
     min-height: 100%;
     font-family: "Inter";
-    font-size: 24px;
   }
 `;

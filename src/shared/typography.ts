@@ -33,9 +33,19 @@ const text2XLStyles = css`
   line-height: 2rem /* 32px */;
 `;
 
+const text3XLStyles = css`
+  font-size: 1.875rem /* 30px */;
+  line-height: 2.25rem /* 36px */;
+`;
+
 const text4XLStyles = css`
   font-size: 2.25rem /* 36px */;
   line-height: 2.5rem /* 40px */;
+`;
+
+const text5XLStyles = css`
+  font-size: 3rem /* 48px */;
+  line-height: 1;
 `;
 
 /**
@@ -44,6 +54,15 @@ const text4XLStyles = css`
 
 export const H1 = styled.h1<TypographyProps>`
   font-weight: "bold";
+  ${text3XLStyles}
+  ${up("md")} {
+    ${text5XLStyles}
+  }
+  ${typography}
+`;
+
+export const H2 = styled.h2<TypographyProps>`
+  font-weight: "bold";
   ${text2XLStyles}
   ${up("md")} {
     ${text4XLStyles}
@@ -51,7 +70,7 @@ export const H1 = styled.h1<TypographyProps>`
   ${typography}
 `;
 
-export const H2 = styled.h2<TypographyProps>`
+export const H3 = styled.h3<TypographyProps>`
   font-weight: "bold";
   ${textXLStyles}
   ${up("md")} {
@@ -60,7 +79,7 @@ export const H2 = styled.h2<TypographyProps>`
   ${typography}
 `;
 
-export const H3 = styled.h3<TypographyProps>`
+export const H4 = styled.h4<TypographyProps>`
   font-weight: "bold";
   ${textLargeStyles}
   ${up("md")} {
@@ -81,5 +100,6 @@ export const Typography = {
   H1,
   H2,
   H3,
+  H4,
   Paragraph,
 };
