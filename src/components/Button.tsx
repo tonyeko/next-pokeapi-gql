@@ -3,6 +3,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import styled from "@emotion/styled";
 import { spin } from "@/shared";
 import { color, fontSize, space } from "styled-system";
+import { theme } from "@/utils";
 
 type ButtonProps = {
   leftIcon?: JSX.Element;
@@ -11,16 +12,20 @@ type ButtonProps = {
 
 const StyledButton = styled.button<ButtonProps>`
   padding: 0.5rem 1rem;
-  border: 0;
+  border: 2px solid ${theme.color.general.black};
   border-radius: 0.375rem /* 6px */;
   font-weight: 600;
   display: inline-flex;
   justify-content: center;
   align-items: center;
   column-gap: 0.5rem;
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   cursor: ${({ disabled, isLoading }) =>
     disabled || isLoading ? "wait" : "pointer"};
+  transition: 0.25s all ease;
+  box-shadow: 4px 5px 0 ${theme.color.general.black};
+  &:hover {
+    box-shadow: none;
+  }
   ${color}
   ${space}
   ${fontSize}

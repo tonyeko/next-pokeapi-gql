@@ -1,5 +1,29 @@
-import { Typography } from "@/shared";
 import styled from "@emotion/styled";
+import { Link } from "@/components";
+import { Typography } from "@/shared";
+import { theme } from "@/utils";
+
+export const PokemonCardLink = styled(Link)<{ color: string }>`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  transition: 0.25s all ease;
+  border: 4px solid ${theme.color.general.black};
+  border-radius: 0.375rem;
+  color: inherit;
+  text-decoration: inherit;
+  box-shadow: 4px 5px 0 ${({ color }) => theme.color.type[color]};
+
+  &:hover {
+    box-shadow: 2px 3px 0 ${({ color }) => theme.color.type[color]};
+  }
+
+  &:active {
+    box-shadow: none;
+  }
+`;
 
 export const IdText = styled(Typography.Paragraph)`
   font-size: 0.8rem;

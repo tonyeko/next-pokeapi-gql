@@ -8,6 +8,7 @@ import { Typography } from "@/shared/typography";
 
 const CenteredDiv = styled.div<LayoutProps>`
   display: flex;
+  gap: 1.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
