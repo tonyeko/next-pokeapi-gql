@@ -6,9 +6,9 @@ enum Transition {
   FADE_OUT = "fadeOut",
 }
 
-interface TransitionLayoutProps {
+type TransitionLayoutProps = {
   route: string;
-}
+};
 
 const TransitionDiv = styled.div`
   opacity: ${({ isFadeIn }: { isFadeIn: boolean }) => (isFadeIn ? 1 : 0)};

@@ -14,7 +14,6 @@ export const globalStyles = css`
   html,
   body {
     margin: 0;
-    background: rgba(229, 231, 235, 1);
     min-height: 100%;
     font-family: "Inter";
   }

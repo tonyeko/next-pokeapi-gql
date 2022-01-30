@@ -4,10 +4,10 @@ import styled from "@emotion/styled";
 import { spin } from "@/shared";
 import { color, fontSize, space } from "styled-system";
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type ButtonProps = {
   leftIcon?: JSX.Element;
   isLoading?: boolean;
-}
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const StyledButton = styled.button<ButtonProps>`
   padding: 0.5rem 1rem;

@@ -22,6 +22,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
+    "react-infinite-scroll-component": "^6.1.0",
     "styled-breakpoints": "^11.0.4",
     "styled-system": "^5.1.5"
   },

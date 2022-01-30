@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { favicons } from "./favicon";
 
-interface Meta {
+type Meta = {
   title: string;
   siteName: string;
   description: string;
@@ -10,7 +10,7 @@ interface Meta {
   image: string;
   type: string;
   robots: string;
-}
+};
 
 const defaultMeta: Meta = {
   title: "Next.js + Tailwind CSS + TypeScript Starter",

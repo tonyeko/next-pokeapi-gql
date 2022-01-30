@@ -13,6 +13,11 @@ const textSmallStyles = css`
   line-height: 1.25rem /* 20px */;
 `;
 
+const textXSStyles = css`
+  font-size: 0.75rem;
+  line-height: 1rem;
+`;
+
 const textBaseStyles = css`
   font-size: 1rem /* 16px */;
   line-height: 1.5rem; /* 24px */
@@ -96,10 +101,19 @@ export const Paragraph = styled.p<TypographyProps>`
   ${typography}
 `;
 
+export const Caption = styled.p<TypographyProps>`
+  ${textXSStyles}
+  ${up("md")} {
+    ${textSmallStyles}
+  }
+  ${typography}
+`;
+
 export const Typography = {
   H1,
   H2,
   H3,
   H4,
   Paragraph,
+  Caption,
 };
