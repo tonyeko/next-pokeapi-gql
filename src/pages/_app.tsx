@@ -3,11 +3,12 @@ import { Global, ThemeProvider } from "@emotion/react";
 import { ApolloProvider } from "@apollo/client";
 
 import { globalStyles } from "@/shared/global";
+import { MyPokemonProvider } from "@/context";
+import { Navbar } from "@/components";
 import { apolloClient } from "@/lib";
 import { theme } from "@/utils";
 
 import "@/css/reset.css";
-import { MyPokemonProvider } from "@/context/MyPokemonContext";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
@@ -15,6 +16,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
     <ApolloProvider client={apolloClient}>
       <ThemeProvider theme={theme}>
         <MyPokemonProvider>
+          <Navbar />
           <Component {...pageProps} />
         </MyPokemonProvider>
       </ThemeProvider>

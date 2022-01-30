@@ -38,7 +38,6 @@ const PokemonCard = ({ data: pokemonData }: PokemonCardProps) => {
     flex-direction: column;
     align-items: center;
     padding: 0.5rem;
-    cursor: pointer;
     transition: 0.25s all ease;
     border: 4px solid ${theme.color.general.black};
     border-radius: 0.375rem;
