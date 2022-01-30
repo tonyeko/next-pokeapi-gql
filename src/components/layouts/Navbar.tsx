@@ -9,8 +9,6 @@ const Navbar = () => {
   const theme = useTheme();
 
   const NavbarContainer = styled(Container)`
-    position: sticky;
-    top: 0;
     display: flex;
     padding: 1.25rem;
     flex-direction: column;
