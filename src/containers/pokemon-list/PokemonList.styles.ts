@@ -18,6 +18,6 @@ export const LoadingImageContainer = styled.div`
   justify-content: center;
   grid-column: span 2 / span 2;
   ${up("md")} {
-    grid-column: span 3 / span 3;
+    grid-column: span 4 / span 4;
   }
 `;

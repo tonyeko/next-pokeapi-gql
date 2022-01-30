@@ -72,7 +72,9 @@ const PokemonCard = ({ data: pokemonData }: PokemonCardProps) => {
       <NameText>{pokemonData.name}</NameText>
       <TypesBadge>
         {types?.map((type, idx) => (
-          <Badge key={idx}>{type.type?.name}</Badge>
+          <Badge variant="ghost" key={idx}>
+            {type.type?.name}
+          </Badge>
         ))}
       </TypesBadge>
       <OwnedText>{`Owned: ${ownedPokemon}`}</OwnedText>

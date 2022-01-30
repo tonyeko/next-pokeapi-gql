@@ -14,7 +14,7 @@ import {
   LoadingImageContainer,
 } from "./PokemonList.styles";
 
-const PokemonListContainer = () => {
+const PokemonList = () => {
   const LIMIT = 100;
   const OFFSET = 0;
 
@@ -61,4 +61,4 @@ const PokemonListContainer = () => {
   );
 };
 
-export default PokemonListContainer;
+export default PokemonList;

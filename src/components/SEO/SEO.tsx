@@ -13,10 +13,10 @@ type Meta = {
 };
 
 const defaultMeta: Meta = {
-  title: "Next.js + Tailwind CSS + TypeScript Starter",
-  siteName: "Next.js + Tailwind CSS + TypeScript Starter",
-  description: "A starter for Next.js, Tailwind CSS, and TypeScript",
-  url: "https://example.com",
+  title: "Pokemonpedia",
+  siteName: "Pokemonpedia",
+  description: "A list of curious monsters out there",
+  url: "https://pokemon-next-gql.vercel.app/",
   image: "/favicon/favicon.png",
   type: "website",
   robots: "follow, index",

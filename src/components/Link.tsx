@@ -5,7 +5,7 @@ export type LinkProps = {
 } & React.ComponentPropsWithoutRef<"a"> &
   $LinkProps;
 
-const Link: React.FC<LinkProps> = ({ children, href, openNewTab, ...rest }) => {
+const Link = ({ children, href, openNewTab, ...rest }: LinkProps) => {
   const isNewTab =
     openNewTab || (href && !href.startsWith("/") && !href.startsWith("#"));
 

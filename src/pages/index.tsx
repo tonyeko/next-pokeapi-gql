@@ -1,15 +1,15 @@
 import { ClientOnly, SEO } from "@/components";
-import { PokemonListContainer } from "@/containers";
+import { PokemonList } from "@/containers";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <SEO pageTitle="Home" />
       <ClientOnly>
-        <PokemonListContainer />
+        <PokemonList />
       </ClientOnly>
     </>
   );
 };
 
-export default Home;
+export default HomePage;

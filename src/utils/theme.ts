@@ -25,6 +25,7 @@ export const theme: Theme = {
     },
     general: {
       black: "#161A2B",
+      white: "#ffffff",
     },
   },
 };
