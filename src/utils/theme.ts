@@ -1,6 +1,16 @@
 import { Theme } from "@emotion/react";
+import { createTheme } from "styled-breakpoints";
+
+const customBreakpoints = createTheme({
+  xs: "0px",
+  sm: "320px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px",
+});
 
 export const theme: Theme = {
+  ...customBreakpoints,
   color: {
     type: {
       normal: "#A8A878",
