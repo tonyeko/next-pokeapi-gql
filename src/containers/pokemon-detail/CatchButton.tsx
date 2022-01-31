@@ -29,6 +29,8 @@ const CatchButton = ({ pokemon }: CatchButtonProps) => {
     const random = Math.random();
     if (random > 0.5) {
       setIsSuccessCatch(true);
+    } else {
+      setIsSuccessCatch(false);
     }
     onOpen();
   };
@@ -37,13 +39,8 @@ const CatchButton = ({ pokemon }: CatchButtonProps) => {
     if (pokemon) {
       savePokemon(pokemon, nickname);
       setNickname(undefined);
-      handleCloseModal();
+      onClose();
     }
-  };
-
-  const handleCloseModal = () => {
-    onClose();
-    setIsSuccessCatch(false);
   };
 
   const handleChangeNickname: React.ChangeEventHandler<HTMLInputElement> = (
@@ -104,7 +101,7 @@ const CatchButton = ({ pokemon }: CatchButtonProps) => {
               )}
             </CatchForm>
             <ModalButtonGroup>
-              <Button onClick={handleCloseModal}>Release</Button>
+              <Button onClick={onClose}>Release</Button>
               <Button type="submit" form="pokemon-nickname">
                 Adopt
               </Button>
@@ -120,7 +117,7 @@ const CatchButton = ({ pokemon }: CatchButtonProps) => {
               }}
             >{`${pokemon.name} Run Away!!`}</Typography.H3>
             <ModalButtonGroup>
-              <Button onClick={handleCloseModal}>Close</Button>
+              <Button onClick={onClose}>Close</Button>
             </ModalButtonGroup>
           </>
         )}
