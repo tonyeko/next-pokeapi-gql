@@ -56,4 +56,6 @@ export const TypesBadge = styled.div`
   margin: 0 0 0.25rem 0;
   gap: 0.25rem;
   height: 1.25rem; // minimalize CLS
+  position: relative;
+  width: 100%;
 `;

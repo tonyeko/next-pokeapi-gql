@@ -15,7 +15,7 @@ import {
 } from "./PokemonList.styles";
 
 const PokemonList = () => {
-  const LIMIT = 100;
+  const LIMIT = 16;
   const OFFSET = 0;
 
   const { data, fetchMore } = useQuery<

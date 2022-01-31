@@ -18,6 +18,7 @@ import {
 } from "./PokemonCard.styles";
 import OwnedPokemonToolbar from "./OwnedPokemonToolbar";
 import DeleteMyPokemonToolbar from "./DeleteMyPokemonToolbar";
+import { Skeleton } from "@/shared";
 
 export type PokemonCardData = {
   id: number;
@@ -74,11 +75,15 @@ const PokemonCard = ({
           : pokemonData.name}
       </NameText>
       <TypesBadge>
-        {types?.map((type, idx) => (
-          <Badge variant="ghost" key={idx}>
-            {type.type?.name}
-          </Badge>
-        ))}
+        {types ? (
+          types.map((type, idx) => (
+            <Badge variant="ghost" key={idx}>
+              {type.type?.name}
+            </Badge>
+          ))
+        ) : (
+          <Skeleton />
+        )}
       </TypesBadge>
     </PokemonCardContainer>
   );
