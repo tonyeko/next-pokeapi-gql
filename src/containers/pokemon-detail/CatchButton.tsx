@@ -76,7 +76,7 @@ const CatchButton = ({ pokemon }: CatchButtonProps) => {
           onClick={handleCatch}
           css={{
             "&:hover": {
-              "div:first-child": spin,
+              "div:first-of-type": spin,
             },
           }}
         >

@@ -15,8 +15,8 @@ type Meta = {
 const defaultMeta: Meta = {
   title: "Pokemonpedia",
   siteName: "Pokemonpedia",
-  description: "A list of curious monsters out there",
-  url: "https://pokemon-next-gql.vercel.app/",
+  description: "A list of pokemons",
+  url: "https://pokemon-next-gql-tonyeko.vercel.app/",
   image: "/favicon/favicon.png",
   type: "website",
   robots: "follow, index",
@@ -51,6 +51,8 @@ const SEO = (props: SEOProps) => {
       <meta name="twitter:title" content={meta.title} />
       <meta name="twitter:description" content={meta.description} />
       <meta name="twitter:image" content={meta.image} />
+      <meta name="msapplication-TileColor" content="#da532c" />
+      <meta name="theme-color" content="#ffffff" />
       {favicons.map((linkProps) => (
         <link key={linkProps.href} {...linkProps} />
       ))}
@@ -59,7 +61,7 @@ const SEO = (props: SEOProps) => {
         name="msapplication-TileImage"
         content="/favicon/ms-icon-144x144.png"
       />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#FFB005" />
     </Head>
   );
 };
