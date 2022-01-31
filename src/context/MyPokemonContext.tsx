@@ -5,14 +5,13 @@ export type Pokemon = {
   id: number;
   name: string;
   types: string[];
-  sprites?: string;
-  nickname?: string;
+  nickname: string;
 };
 
 type MyPokemonContextType = {
   myPokemon: Pokemon[];
   savePokemon: (pokemon: PokeAPI.Pokemon, nickname: string) => void;
-  releasePokemon: (idx: number) => void;
+  releasePokemon: (nickname: string) => void;
   clearMyPokemon: () => void;
 };
 
@@ -25,7 +24,7 @@ const MyPokemonContext = createContext<MyPokemonContextType>({
   /* eslint-enable @typescript-eslint/no-empty-function */
 });
 
-const MyPokemonProvider: React.FC = (props) => {
+const MyPokemonProvider: React.FC = ({ children }) => {
   const [myPokemon, setMyPokemon] = useState<Pokemon[]>([]);
 
   const savePokemon = (pokemon: PokeAPI.Pokemon, nickname: string) => {
@@ -33,7 +32,6 @@ const MyPokemonProvider: React.FC = (props) => {
       id: pokemon.id!,
       name: pokemon.name!,
       types: pokemon.types!.map((type) => type.type?.name || "unknown"),
-      sprites: pokemon.sprites?.front_default,
       nickname,
     };
 
@@ -42,9 +40,10 @@ const MyPokemonProvider: React.FC = (props) => {
     saveMyPokemon(payload);
   };
 
-  const releasePokemon = (idx: number) => {
-    const filtered = [...myPokemon];
-    filtered.splice(idx, 1);
+  const releasePokemon = (nickname: string) => {
+    const filtered = myPokemon.filter(
+      (pokemon) => pokemon.nickname !== nickname
+    );
     setMyPokemon(filtered);
     saveMyPokemon(filtered);
   };
@@ -64,8 +63,9 @@ const MyPokemonProvider: React.FC = (props) => {
   return (
     <MyPokemonContext.Provider
       value={{ myPokemon, releasePokemon, savePokemon, clearMyPokemon }}
-      {...props}
-    />
+    >
+      {children}
+    </MyPokemonContext.Provider>
   );
 };
 

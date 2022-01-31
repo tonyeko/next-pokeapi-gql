@@ -5,16 +5,17 @@ import {
   PokemonDetail,
 } from "@/containers";
 import { apolloClient } from "@/lib";
+import { capitalize } from "@/utils";
 import { GetServerSideProps } from "next";
 
 type PokemonDetailPageProps = {
-  pokemon: GetPokemonDetailQueryResult;
+  data: GetPokemonDetailQueryResult;
 } & GetServerSideProps;
 
-const PokemonDetailPage: React.FC<PokemonDetailPageProps> = ({ pokemon }) => (
+const PokemonDetailPage: React.FC<PokemonDetailPageProps> = ({ data }) => (
   <>
-    <SEO pageTitle={`Bulbasaur`} />
-    <PokemonDetail data={pokemon} />
+    <SEO pageTitle={`${capitalize(data.pokemon.name!)}`} />
+    <PokemonDetail data={data} />
   </>
 );
 
@@ -27,7 +28,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     });
     return {
       props: {
-        pokemon: data,
+        data,
       },
     };
   }

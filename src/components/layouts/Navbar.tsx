@@ -53,7 +53,7 @@ const Navbar = () => {
         <Link href="/">
           <NavbarText>All</NavbarText>
         </Link>
-        <Link href="/my-pokemons">
+        <Link href="/my-pokemon">
           <NavbarText>My Pokemons</NavbarText>
         </Link>
       </NavbarFlex>

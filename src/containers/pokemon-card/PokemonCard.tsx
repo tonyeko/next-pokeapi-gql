@@ -1,7 +1,8 @@
-import { useQuery } from "@apollo/client";
+import { useEffect } from "react";
+import { useLazyQuery } from "@apollo/client";
 import Image from "next/image";
 
-import { Badge } from "@/components";
+import { Badge, Link } from "@/components";
 import { formatPokemonId } from "@/utils";
 
 import {
@@ -12,19 +13,30 @@ import {
 import {
   IdText,
   NameText,
-  OwnedText,
-  PokemonCardLink,
+  PokemonCardContainer,
   TypesBadge,
 } from "./PokemonCard.styles";
-import { useMyPokemon } from "@/context/MyPokemonContext";
+import OwnedPokemonToolbar from "./OwnedPokemonToolbar";
+import DeleteMyPokemonToolbar from "./DeleteMyPokemonToolbar";
 
-export type PokemonCardProps = {
-  data: PokeAPI.PokemonItem;
+export type PokemonCardData = {
+  id: number;
+  name: string;
+  dreamworld: string;
+  types?: PokeAPI.Type[];
+  nickname?: string;
 };
 
-const PokemonCard = ({ data: pokemonData }: PokemonCardProps) => {
-  const { myPokemon } = useMyPokemon();
-  const { data: typesData } = useQuery<
+export type PokemonCardProps = {
+  data: PokemonCardData;
+  toolbar?: "owned-pokemon" | "delete-my-pokemon";
+};
+
+const PokemonCard = ({
+  data: pokemonData,
+  toolbar = "owned-pokemon",
+}: PokemonCardProps) => {
+  const [getPokemonTypes, { data: typesData }] = useLazyQuery<
     GetPokemonTypesQueryResult,
     GetPokemonTypesQueryVariables
   >(GET_POKEMON_TYPES, {
@@ -32,15 +44,22 @@ const PokemonCard = ({ data: pokemonData }: PokemonCardProps) => {
     fetchPolicy: "no-cache",
   });
 
-  const types = typesData?.pokemon.types;
+  useEffect(() => {
+    if (!pokemonData.types) {
+      getPokemonTypes();
+    }
+  }, [pokemonData.types, getPokemonTypes]);
+
+  const types = pokemonData.types || typesData?.pokemon.types;
   const firstType = types?.[0]?.type?.name || "unknown";
 
-  const ownedPokemon = myPokemon.filter(
-    (pokemon) => pokemon.id === pokemonData.id
-  ).length;
-
-  return (
-    <PokemonCardLink color={firstType} href={`/pokemon/${pokemonData.name}`}>
+  const renderContent = () => (
+    <PokemonCardContainer color={firstType}>
+      {toolbar === "owned-pokemon" ? (
+        <OwnedPokemonToolbar data={pokemonData} />
+      ) : (
+        <DeleteMyPokemonToolbar data={pokemonData} />
+      )}
       <Image
         crossOrigin="anonymous"
         src={pokemonData.dreamworld}
@@ -49,7 +68,11 @@ const PokemonCard = ({ data: pokemonData }: PokemonCardProps) => {
         height={128}
       />
       <IdText>{formatPokemonId(pokemonData.id)}</IdText>
-      <NameText>{pokemonData.name}</NameText>
+      <NameText>
+        {pokemonData.nickname
+          ? `${pokemonData.nickname}\nThe ${pokemonData.name}`
+          : pokemonData.name}
+      </NameText>
       <TypesBadge>
         {types?.map((type, idx) => (
           <Badge variant="ghost" key={idx}>
@@ -57,8 +80,18 @@ const PokemonCard = ({ data: pokemonData }: PokemonCardProps) => {
           </Badge>
         ))}
       </TypesBadge>
-      <OwnedText>{`Owned: ${ownedPokemon}`}</OwnedText>
-    </PokemonCardLink>
+    </PokemonCardContainer>
+  );
+
+  return toolbar === "delete-my-pokemon" ? (
+    renderContent()
+  ) : (
+    <Link
+      href={`/pokemon/${pokemonData.name}`}
+      css={{ color: "inherit", textDecoration: "inherit" }}
+    >
+      {renderContent()}
+    </Link>
   );
 };
 

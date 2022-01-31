@@ -1,9 +1,8 @@
 import styled from "@emotion/styled";
-import { Link } from "@/components";
 import { Typography } from "@/shared";
 import { theme } from "@/utils";
 
-export const PokemonCardLink = styled(Link)<{ color: string }>`
+export const PokemonCardContainer = styled.div<{ color: string }>`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -12,8 +11,6 @@ export const PokemonCardLink = styled(Link)<{ color: string }>`
   transition: 0.25s all ease;
   border: 4px solid ${theme.color.general.black};
   border-radius: 0.375rem;
-  color: inherit;
-  text-decoration: inherit;
   box-shadow: 4px 5px 0 ${({ color }) => theme.color.type[color]};
 
   &:hover {
@@ -31,7 +28,7 @@ export const IdText = styled(Typography.Paragraph)`
   opacity: 0.8;
 `;
 
-export const OwnedText = styled(Typography.Caption)`
+export const ToolbarText = styled(Typography.Caption)`
   position: absolute;
   top: 0.375rem;
   left: -1.125rem;
@@ -40,6 +37,7 @@ export const OwnedText = styled(Typography.Caption)`
   font-weight: 600;
   border: 2px solid #161a2b;
   border-radius: 0.25rem;
+  z-index: 10000;
 `;
 
 export const NameText = styled(Typography.Paragraph)`
@@ -48,6 +46,7 @@ export const NameText = styled(Typography.Paragraph)`
   word-wrap: break-word;
   text-align: center;
   text-transform: uppercase;
+  white-space: pre-wrap;
 `;
 
 export const TypesBadge = styled.div`

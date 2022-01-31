@@ -24,7 +24,7 @@ const NotFoundPage: React.FC = () => {
   return (
     <>
       <SEO pageTitle="Not Found" />
-      <CenteredDiv minHeight="100vh">
+      <CenteredDiv minHeight="92.5vh">
         <RiFileWarningFill size={72} style={{ color: "rgb(239 68 68)" }} />
         <Typography.H1 fontWeight="bold">Page Not Found</Typography.H1>
         <Button onClick={handleBack}>Go Back</Button>

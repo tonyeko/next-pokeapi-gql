@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Container } from "@/shared";
-import { formatPokemonId } from "@/utils";
+import { formatPokemonId, getDreamWorldImage } from "@/utils";
 import { Badge } from "@/components";
 import CatchButton from "./CatchButton";
 
@@ -28,9 +28,6 @@ const PokemonDetail = ({ data }: PokemonDetailProps) => {
   } = data;
 
   const firstType = types?.[0]?.type?.name || "unknown";
-
-  const getDreamWorldImage = (pokemonId: number) =>
-    `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
 
   return (
     <Container css={{ marginTop: "1rem" }}>
