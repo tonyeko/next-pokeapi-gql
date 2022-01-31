@@ -20,7 +20,7 @@ export const LoadingImageContainer = styled.div`
   display: flex;
   justify-content: center;
   grid-column: span 1 / span 1;
-  ${up("md")} {
+  ${up("sm")} {
     grid-column: span 2 / span 2;
   }
   ${up("md")} {
